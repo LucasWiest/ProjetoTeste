@@ -12,6 +12,10 @@ public static class JWT
     public static IServiceCollection RegisterJWT(this IServiceCollection services, JWTOptions optionsJWT)
     {
 
+        #region Anotações JWT
+            //É possível fazer a de 2 fatores(MF4 ou 2FA)
+        #endregion
+
         services.AddAuthentication(options =>
         {
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

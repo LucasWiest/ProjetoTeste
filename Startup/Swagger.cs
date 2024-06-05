@@ -14,6 +14,7 @@ public static class Swagger
                 Version = "v1",
                 Title = "Projetos de teste",
                 Description = "esse projeto é para testar as skills",
+                
                 TermsOfService = new Uri("https://www.linkedin.com/in/lucas-finotti-wiest-a102061a8/"),
             });
         });
@@ -26,7 +27,7 @@ public static class Swagger
         webApplication.UseSwagger();
         webApplication.UseSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "ProjetoTeste API v1");
             options.RoutePrefix = string.Empty;
         }); 
 

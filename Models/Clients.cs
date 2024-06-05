@@ -1,8 +1,13 @@
-﻿namespace ProjetoTeste.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ProjetoTeste.Models
 {
     public class Clients
     {
-        public required Guid Id { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid? Id { get; set; }
 
         public required string Name { get; set; }
         public required DateOnly Birth { get; set; } 
@@ -14,7 +19,7 @@
 
         public required decimal NetSalary { get; set; } 
 
-        public required Professions Professions { get; set; }
+        public Professions? Professions { get; set; }
 
     }
 }

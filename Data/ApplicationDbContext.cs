@@ -2,19 +2,23 @@
 using Microsoft.EntityFrameworkCore;
 using ProjetoTeste.Data.Contexts;
 using ProjetoTeste.Models;
+using ProjetoTeste.Types.Curreancy;
 using System.Reflection.Emit;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ProjetoTeste.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext
+    : IdentityDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
-    {
+    { 
+        //É possivel colocar para todas as querys serem notracking
+        //ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     } 
 
-    public DbSet<Clients> Clients { get; set; } 
+    public DbSet<Clients> Clients { get; set; }  
 
     public DbSet<Professions> Professions { get; set; }
 
@@ -50,6 +54,24 @@ public class ApplicationDbContext : IdentityDbContext
         builder.ProfessionsBuilder();
 
         builder.ClientsBuilder();
+
+
+        //Quanto fizer um tipo e quiser converter para a tipagem do banco
+        foreach (var entityType in builder.Model.GetEntityTypes())
+        {
+            foreach (var property in entityType.ClrType.GetProperties())
+            {
+                if (property.PropertyType == typeof(Currency) || property.PropertyType == typeof(Currency?))
+                {
+                    var converter = new CurrencyConverter();
+                    builder.Entity(entityType.ClrType)
+                        .Property(property.Name)
+                        .HasConversion(converter);
+                }
+            } 
+
+           
+        }
 
         base.OnModelCreating(builder);
     }

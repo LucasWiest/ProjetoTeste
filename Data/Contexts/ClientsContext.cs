@@ -12,7 +12,8 @@ public static class ClientsContext
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Id)
                   .IsRequired()
-                  .HasColumnType("uniqueidentifier");
+                  .HasColumnType("uniqueidentifier")
+                  .HasDefaultValueSql("NEWID()");
 
             entity.Property(e => e.Name)
                   .IsRequired()
@@ -43,6 +44,7 @@ public static class ClientsContext
             entity.HasOne(e => e.Professions)
                   .WithMany(p => p.Clients)
                   .HasForeignKey(e => e.Profession);
+
 
             entity.ToTable("Clients", "dbo");
         });

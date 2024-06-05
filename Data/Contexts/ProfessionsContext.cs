@@ -20,7 +20,7 @@ public static class ProfessionsContext
 
             entity.HasMany(e => e.Clients)
             .WithOne(p => p.Professions)
-            .HasForeignKey(c => c.Profession);
+            .HasForeignKey(c => c.Profession); 
 
         }); 
 

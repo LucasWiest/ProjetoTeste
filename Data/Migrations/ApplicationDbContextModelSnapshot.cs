@@ -222,9 +222,10 @@ namespace ProjetoTeste.Data.Migrations
 
             modelBuilder.Entity("ProjetoTeste.Models.Clients", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid?>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<DateOnly>("Birth")
                         .HasColumnType("date");

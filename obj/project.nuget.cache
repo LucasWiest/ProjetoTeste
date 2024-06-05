@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ri7zEW9F+gyhLfyGy4YO1bF/e7AcMYh9sG1fWNhrzjM9TWkR4fpNFzfA1K0qXrH0InLbI1PJ92vV8y9EUonflw==",
+  "dgSpecHash": "ix9i0yL76woLfvnnvVLYpuzRpXwc8WWwzYRDiZkeK094Xdq72RCHtkpk/HibFLjVFZhDvbFtdck2WjUjWcO/Dw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lucas\\OneDrive\\Documents\\Estudos\\ProjetoTeste\\ProjetoTeste.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
