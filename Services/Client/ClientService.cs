@@ -2,7 +2,6 @@
 using ProjetoTeste.Models;
 using ProjetoTeste.Repository.Client;
 using ProjetoTeste.Views.Client;
-using System.ComponentModel;
 
 namespace ProjetoTeste.Services.Client
 {

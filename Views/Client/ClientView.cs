@@ -3,7 +3,7 @@ namespace ProjetoTeste.Views.Client
 {
     public class ClientView
     {
-        public Guid? Id { get; set; }
+        public required Guid Id { get; set; }
 
         public required string Name { get; set; }
         public DateOnly Birth { get; set; }

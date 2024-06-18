@@ -7,7 +7,7 @@ namespace ProjetoTeste.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid? Id { get; set; }
+        public required Guid Id { get; set; }
 
         public required string Name { get; set; }
         public required DateOnly Birth { get; set; } 

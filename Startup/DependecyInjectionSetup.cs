@@ -1,4 +1,6 @@
-﻿using ProjetoTeste.Repository;
+﻿using Microsoft.AspNetCore.Identity;
+using ProjetoTeste.Data;
+using ProjetoTeste.Repository;
 using ProjetoTeste.Services;
 using static ProjetoTeste.Startup.DataBase;
 using static ProjetoTeste.Startup.JWT;
@@ -14,6 +16,11 @@ public static class DependecyInjectionSetup
         service.RegisterDB(config.GetSection("DataBase").Get<DBOptions>());
 
         service.RegisterSwagger();
+
+        service.AddIdentity<IdentityUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
 
         service.AddControllersWithViews();
 
@@ -59,7 +66,7 @@ public static class DependecyInjectionSetup
 
         service.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         
-        service.AddMvc();
+        service.AddMvc(); 
 
         return service;
     } 
@@ -74,6 +81,8 @@ public static class DependecyInjectionSetup
         webApplication.UseStaticFiles();
 
         webApplication.UseRouting();
+
+        webApplication.UseAuthentication();
 
         webApplication.UseAuthorization();
 

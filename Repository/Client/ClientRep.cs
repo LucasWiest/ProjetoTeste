@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using ProjetoTeste.Data;
 using ProjetoTeste.Models;
 
@@ -33,7 +31,7 @@ namespace ProjetoTeste.Repository.Client
         public async Task<Clients> Save (Clients clients)
         {
 
-            if (clients.Id == null || clients.Id == Guid.Empty)
+            if (clients.Id == Guid.Empty)
                 await Insert(clients); 
             else 
                 await Update(clients);
