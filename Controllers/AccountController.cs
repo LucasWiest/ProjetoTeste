@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoTeste.Services.Account;
 using ProjetoTeste.Views.Account;
 
 namespace ProjetoTeste.Controllers
@@ -10,15 +11,24 @@ namespace ProjetoTeste.Controllers
     public class AccountController : ControllerBase
     {
 
-        private readonly UserManager<IdentityUser> userManager; 
+        private readonly AccountService accountService;
 
-        private readonly SignInManager<IdentityUser> signInManager;
-
-        public AccountController(UserManager<IdentityUser> userManager, 
-            SignInManager<IdentityUser> signInManager)
+        public AccountController(AccountService accountService)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
+            this.accountService = accountService;
+        }
+
+        [HttpPost] 
+        public async Task<IActionResult> Login([FromBody]LoginView model)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            } 
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
@@ -27,27 +37,15 @@ namespace ProjetoTeste.Controllers
         {
             try
             {
-                var user = new IdentityUser
-                {
-                    UserName = view.UserName,
-                    Email = view.Email
+                var jwt = await this.accountService.Register(view);  
 
-                };
-
-                var result = await userManager.CreateAsync(user, view.Password);
-
-                if (result.Succeeded)
+                if (jwt == null || jwt.Count() == 0)
                 {
-                    await signInManager.SignInAsync(user, isPersistent: false); 
-                    signInManager.
-                } 
-                else
-                {
-                    return BadRequest(result);
+                   return StatusCode(401, "Ocorreu um erro ao registar o usuário");
                 }
 
-
-                return Ok();
+                return Ok(jwt);
+                
             } 
             catch (Exception ex)
             {

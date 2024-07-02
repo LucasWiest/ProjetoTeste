@@ -3,7 +3,7 @@ using ProjetoTeste.Models;
 
 namespace ProjetoTeste.Data.Contexts;
 
-public static class ProfessionsContext
+public static class ProfessionsConfiguration
 {
     public static ModelBuilder ProfessionsBuilder (this ModelBuilder modelBuilder)
     {

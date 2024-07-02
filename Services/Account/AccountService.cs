@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Win32;
 using ProjetoTeste.Services.JWT;
 using ProjetoTeste.Views.Account;
 
 namespace ProjetoTeste.Services.Account
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
 
         private readonly UserManager<IdentityUser> userManager;
@@ -24,24 +26,58 @@ namespace ProjetoTeste.Services.Account
 
         public async Task<string> Register(RegisterView register)
         {
-            var user = new IdentityUser
+            try
             {
-                UserName = register.UserName,
-                Email = register.Email
-            };
+                var user = new IdentityUser
+                {
+                    UserName = register.UserName,
+                    Email = register.Email
+                };
 
-            var result = await userManager.CreateAsync(user, register.Password); 
+                var result = await userManager.CreateAsync(user, register.Password);
 
-            if (result.Succeeded)
-            {
-               return await jwtService.GenerateJwtToken(user);
+                if (result.Succeeded)
+                {
+                    return await jwtService.GenerateJwtToken(user);
+                }
+                else
+                {
+                    throw new Exception(result.ToString());
+                }
             }
-            else
+            catch
             {
-                throw new Exception(result.ToString()); 
+                throw;
             }
 
         } 
+
+        public async Task<string> Login (LoginView login)
+        {
+            try
+            {
+                var user = new IdentityUser
+                {
+                    Email = login.Email,
+                    PasswordHash = login.Password
+                };
+
+                var canLogin = await signInManager.CanSignInAsync(user);
+
+                if (canLogin)
+                {
+                    return await jwtService.GenerateJwtToken(user);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            } 
+            catch 
+            {
+                throw;
+            }
+        }
 
     }
 }
