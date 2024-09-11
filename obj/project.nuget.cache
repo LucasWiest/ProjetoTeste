@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "ix9i0yL76woLfvnnvVLYpuzRpXwc8WWwzYRDiZkeK094Xdq72RCHtkpk/HibFLjVFZhDvbFtdck2WjUjWcO/Dw==",
+  "dgSpecHash": "GwAqX9tWv4KMLMS+jNP/2AZtnoXhlBQT0nffFuSDfcS3ymTg9B717vingvz/rdhqx/7+Pt5pOhhllNKXUP/rvA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lucas\\OneDrive\\Documents\\Estudos\\ProjetoTeste\\ProjetoTeste.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

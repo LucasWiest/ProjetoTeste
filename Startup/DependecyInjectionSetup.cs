@@ -4,7 +4,10 @@ using ProjetoTeste.Repository;
 using ProjetoTeste.Services;
 using static ProjetoTeste.Startup.DataBase;
 using static ProjetoTeste.Startup.JWT;
-
+using FluentValidation;
+using ProjetoTeste.Views.Account;
+using FluentValidation.AspNetCore;
+using ProjetoTeste.Controllers.Validators.Account;
 namespace ProjetoTeste.Startup;
 public static class DependecyInjectionSetup
 {
@@ -21,8 +24,11 @@ public static class DependecyInjectionSetup
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
 
+        service.AddControllersWithViews(); 
 
-        service.AddControllersWithViews();
+        service.AddFluentValidationAutoValidation()
+            .AddFluentValidationClientsideAdapters()
+            .AddValidatorsFromAssemblyContaining<RegisterViewValidator>();
 
         service.RegisterInjectionRepo();
 
@@ -59,14 +65,19 @@ public static class DependecyInjectionSetup
         //    .FromAssemblyOf<IClientService>() // Assembly de referência
         //    .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Service"))) // Filtra classes terminadas em "Service"
         //    .AsImplementedInterfaces() // Registrar como as interfaces que implementa
-        //    .WithTransientLifetime()); // Tempo de vida dos serviços
+        //    .WithTransientLifetime()); // Tempo de vida dos serviços 
+
+
+        // se estiver usando o asp.net core 
+
+        //install - package FluentValidation.AspNetCore
 
 
         #endregion
 
         service.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         
-        service.AddMvc(); 
+        service.AddMvc();
 
         return service;
     } 
