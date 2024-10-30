@@ -172,3 +172,6 @@ C:\Users\Lucas\OneDrive\Documents\Estudos\ProjetoTeste\obj\Debug\net8.0\refint\P
 C:\Users\Lucas\OneDrive\Documents\Estudos\ProjetoTeste\obj\Debug\net8.0\ProjetoTeste.pdb
 C:\Users\Lucas\OneDrive\Documents\Estudos\ProjetoTeste\obj\Debug\net8.0\ProjetoTeste.genruntimeconfig.cache
 C:\Users\Lucas\OneDrive\Documents\Estudos\ProjetoTeste\obj\Debug\net8.0\ref\ProjetoTeste.dll
+C:\Users\Lucas\OneDrive\Documents\Estudos\ProjetoTeste\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Lucas\OneDrive\Documents\Estudos\ProjetoTeste\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\Lucas\OneDrive\Documents\Estudos\ProjetoTeste\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
